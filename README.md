@@ -16,17 +16,17 @@ The data preparation phase is crucial for building an effective news recommendat
 
 **News articles metadata**: Metadata about news articles, such as categories, subcategories, titles, and abstracts, is loaded into a DataFrame. This metadata is essential for understanding the content and context of news articles, which is used later in the recommendation process.
 
-## User and news embeddings
+## User embeddings
 
-After data preparation, the next step is to generate embeddings for users and news articles. Embeddings are low-dimensional representations of entities in a high-dimensional space, learned through techniques like Graph Neural Networks (GNNs) or collaborative filtering.
+After data preparation, the next step is to generate embeddings for users. Embeddings are low-dimensional representations of entities in a high-dimensional space, learned through techniques like Graph Neural Networks (GNNs) or collaborative filtering.
 
-**LightGCN model**: In this project, a LightGCN model is employed to learn user and news embeddings from the interaction graph. LightGCN is a lightweight graph convolutional network designed for collaborative filtering tasks, which efficiently captures user-item interactions and learns embeddings by propagating information through the graph structure.
+**LightGCN model**: In this project, a LightGCN model is employed to learn user embeddings from the interaction graph. LightGCN is a lightweight graph convolutional network designed for collaborative filtering tasks, which efficiently captures user-item interactions and learns embeddings by propagating information through the graph structure.
 
 **Embedding generation**: The LightGCN model learns embeddings by optimizing an objective function that minimizes the difference between observed user-item interactions and predicted preferences. By iteratively updating the embeddings using gradient descent, the model converges to a set of embeddings that capture the underlying relationships between users and news articles.
 
 ## Recommender model
 
-With user and news embeddings generated, the next step is to build a recommender model that leverages these embeddings to make personalized recommendations to users. In this project, a Multilayer Perceptron (MLP) model is employed for recommendation, which predicts user preferences based on their embedding vectors.
+With user and news embeddings, the next step is to build a recommender model that leverages these embeddings to make personalized recommendations to users. In this project, a Multilayer Perceptron (MLP) model is employed for recommendation, which predicts user preferences based on their embedding vectors.
 
 **Model architecture**: The MLP model consists of multiple layers of neurons, where each layer performs a nonlinear transformation of the input data. The model takes as input the concatenated user and news embeddings and predicts the probability that the user will interact with each news article.
 
